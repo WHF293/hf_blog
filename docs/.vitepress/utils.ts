@@ -55,7 +55,7 @@ export const getSearchKeyToJson = () => {
       const text = file.replace(".md", "");
       const obj = {
         text,
-        link: `${baseUrl}/${dir}/${text}`,
+        link: `${baseUrl}${dir}/${text}`,
         icon: icons[getRandomNum(icons.length - 1)],
       } as IKeyItem;
       if (isIndexFile) {
