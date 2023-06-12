@@ -8,6 +8,10 @@
 
 const nav = [
   {
+    text: 'hooks 葵花宝典',
+    link: 'https://whf293.github.io/whf-hooks-analysis/'
+  },
+  {
     text: '推荐',
     items: [
       {
