@@ -1,0 +1,32 @@
+{
+  "name": "hf-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "keywords": [
+    "vitepress",
+    "blog",
+    "js",
+    "markdown"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.6",
+    "markdown-it": "^13.0.1",
+    "vite": "^4.1.2",
+    "vitepress": "1.0.0-alpha.72",
+    "vitepress-plugin-search": "1.0.4-alpha.19",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "lodash-es": "^4.17.21",
+    "sass": "^1.62.0"
+  }
+}
