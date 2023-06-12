@@ -23,7 +23,6 @@ export default defineConfig({
 	title: "霞露小伙",
 	description: "老王个人的学习记录，吐槽分享",
 	lastUpdated: true,
-	outDir: "../dist",
 	themeConfig: {
 		lastUpdatedText: "最近更新",
 		logo: "https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/h-theme.png",
