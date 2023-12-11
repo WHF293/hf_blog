@@ -146,8 +146,6 @@ export default class Lazy {
 }
 ```
 
-IntersectionObserver 可以看 [这里](./vueuse-useIntersectionObserver)
-
 
 ```js
 export default class Lazy {

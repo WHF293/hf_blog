@@ -1,29 +1,43 @@
+/*
+ * @Author: wanghaofeng
+ * @Date: 2023-11-15 20:17:27
+ * @LastEditors: wanghaofeng
+ * @LastEditTime: 2023-12-12 00:03:48
+ * @FilePath: \hf_blog\docs\.vitepress\theme\hooks\useDocsInfo.ts
+ * @Description:
+ * Copyright (c) 2023 by wanghaofeng , All Rights Reserved.
+ */
 import { reactive, ref, onMounted } from 'vue'
 import allDocsInfo from '../../keyWord.json'
 
 export default function useDocsInfo() {
-    const allDocsNum = ref(0);
-    const keys = ref<string[]>([])
-    const docsData = reactive<any>(allDocsInfo)
+  const allDocsNum = ref(0)
+  const keys = ref<string[]>([])
+  const docsData = reactive<any>(allDocsInfo)
 
-    const initDocsInfo = () => {
-        let _tempKeys = [] as string[]
+  const initDocsInfo = () => {
+    let _tempKeys = [] as string[]
 
-        Object.entries(docsData.keywords).forEach(([key, value]: [string, any]) => {
-            allDocsNum.value += value.data.length
-            _tempKeys.unshift(key)
-        })
-        keys.value = _tempKeys
-    }
-
-    onMounted(() => {
-        initDocsInfo()
+    Object.entries(docsData.keywords).forEach(([key, value]: [string, any]) => {
+      allDocsNum.value += value.data.length
+      _tempKeys.unshift(key)
     })
+    console.log(_tempKeys, '........._tempKeys');
+    keys.value = _tempKeys.sort((a, b) => {
+      const value1 = a.charAt(0)
+      const value2 = b.charAt(0)
+      // 这里localeCompare应该是不支持第二个参数的 但是并没有报错，请直接使用value1.localeCompare(value2)
+      return value1.localeCompare(value2, 'zh-CN')
+    })
+  }
 
-    return {
-        allDocsNum,
-        keys,
-        docsData,
-    }
+  onMounted(() => {
+    initDocsInfo()
+  })
+
+  return {
+    allDocsNum,
+    keys,
+    docsData,
+  }
 }
-
