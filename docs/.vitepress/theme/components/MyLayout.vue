@@ -1,9 +1,9 @@
 <!--
  * @Author: hfWang
  * @Date: 2022-07-25 19:05:31
- * @LastEditTime: 2022-10-19 20:07:21
+ * @LastEditTime: 2023-12-11 21:32:39
  * @Description: file content
- * @FilePath: \blog\docs\.vitepress\theme\MyTheme\MyLayout.vue
+ * @FilePath: \hf_blog\docs\.vitepress\theme\components\MyLayout.vue
 -->
 <script setup lang="ts">
 import DefaultTheme from "vitepress/theme";
@@ -46,11 +46,11 @@ const { Layout } = DefaultTheme;
       <div class="mb-20 fs-20 color">霞露小伙 — HfWang</div>
     </template>
     <!--右侧边栏底部图片-->
-    <template #aside-bottom>
+    <!-- <template #aside-bottom>
       <div class="aside-bottom-img">
-        <img src="/cy.png" alt="" />
+        <img src="/cy2.png" alt="" />
       </div>
-    </template>
+    </template> -->
   </Layout>
 </template>
 
@@ -87,7 +87,7 @@ const { Layout } = DefaultTheme;
   position:fixed;
   bottom: 0;
   right: -20px;
-  width: 280px;
+  width: 180px;
   animation: chu-uin linear 3s infinite;
 }
 
