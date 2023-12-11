@@ -2,9 +2,9 @@
 /*
  * @Author: hfWang
  * @Date: 2022-09-20 23:25:36
- * @LastEditTime: 2022-10-19 20:09:00
+ * @LastEditTime: 2023-12-11 22:09:42
  * @Description: file content
- * @FilePath: \blog\docs\.vitepress\constant.ts
+ * @FilePath: \hf_blog\docs\.vitepress\theme\constant.ts
  */
 import { Feature } from "../types";
 
@@ -16,7 +16,8 @@ export const titleMap = {
     source: '源码学习',
     work: '工作学习踩坑',
     frame: '框架学习',
-    book: '读书笔记'
+    book: '读书笔记',
+    ahooks: 'ahooks源码学习',
 }
 
 export const tagColors = ['#6ee7b7', '#f0abfc', '#94A3B8', '#6ee7b7', '#22d3ee', '#a5b4fc', '#fca5a5']

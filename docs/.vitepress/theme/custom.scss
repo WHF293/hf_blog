@@ -11,9 +11,9 @@
   --vp-c-white-soft: #f9f9f9;
   --vp-c-white-mute: #f1f1f1;
 
-  --vp-c-black: #1a1a1a;
+  --vp-c-black: #343a46;
   --vp-c-black-pure: #000000;
-  --vp-c-black-soft: #242424;
+  --vp-c-black-soft: #343a46;
   --vp-c-black-mute: #2f2f2f;
 
   --vp-c-gray: #8e8e8e;
@@ -48,6 +48,7 @@
   --vp-c-indigo-soft: #aa87fa;
   --vp-c-indigo-light: #aac8e4;
   --vp-c-indigo-lighter: #aa87fa;
+  --vp-c-indigo-darker: #14212e;
   --vp-c-indigo-dark: #1d2f3f;
   --vp-c-indigo-darker: #14212e;
 
@@ -154,7 +155,7 @@
   --hf-c-2: #999999;
   --hf-c-3: #84b674;
 
-  --hf-bg-1: rgb(31, 30, 30);
+  --hf-bg-1: var(--vp-c-black);
   --hf-bg-2: rgb(53, 53, 53);
 }
 
@@ -445,7 +446,7 @@ blockquote {
 }
 
 .VPSidebar {
-  background: url('/cy2.png') no-repeat bottom;
+  // background: url('/cy2.png') no-repeat bottom;
   background-size: 60%;
   opacity: 0.8;
   animation: chu-yin-2 6s linear infinite;
@@ -490,4 +491,20 @@ blockquote {
 
 a:hover {
   color: var(--vp-c-yellow) !important;
+}
+
+:root {
+  --code_bgc: #1b1a1a;
+}
+
+.vp-doc div[class*='language-'] {
+  background-color: var(--code_bgc);
+}
+
+.vp-code-group {
+  .tabs,
+  pre,
+  .blocks {
+    background-color: var(--code_bgc);
+  }
 }

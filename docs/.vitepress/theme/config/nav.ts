@@ -1,16 +1,16 @@
 /*
  * @Author: hfWang
  * @Date: 2022-07-18 21:24:05
- * @LastEditTime: 2023-02-07 23:24:34
+ * @LastEditTime: 2023-12-11 22:04:35
  * @Description: file content
- * @FilePath: \whf_blog\docs\.vitepress\customConfig\nav.ts
+ * @FilePath: \hf_blog\docs\.vitepress\theme\config\nav.ts
  */
 
 const nav = [
-  {
-    text: 'hooks 葵花宝典',
-    link: 'https://whf293.github.io/whf-hooks-analysis/'
-  },
+  // {
+  //   text: 'hooks 葵花宝典',
+  //   link: 'https://whf293.github.io/whf-hooks-analysis/'
+  // },
   {
     text: '推荐',
     items: [

@@ -22,6 +22,7 @@ const getRandomColor = () => {
         <MyAllDocs></MyAllDocs>
       </div>
       <div class="left">
+
         <div class="left-item scale">
           <img src="/buliangren.png" class="buliangren" />
           <div class="flex-center mb-16">
@@ -51,14 +52,8 @@ const getRandomColor = () => {
             </div>
           </div>
         </div>
-        <div class="left-item scale">
-          <div class="quick-module">
-            <a href="/docs/web-site.html#react-社区">react 社区</a>
-            <a href="/docs/web-site.html#vue-社区">vue 社区</a>
-            <a href="/docs/web-site.html#打包相关">打包相关</a>
-            <a href="/docs/web-site.html#跨端框架">跨端框架</a>
-            <a href="/docs/web-site.html#css-相关">Css 框架</a>
-          </div>
+        <div class="left-item scale mytip">
+          永远相信美好的事情即将发生
         </div>
       </div>
     </div>
@@ -66,6 +61,12 @@ const getRandomColor = () => {
 </template>
 
 <style scoped lang="scss">
+.mytip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .tag {
   font-size: 12px;
   line-height: 16px;
@@ -218,8 +219,6 @@ const getRandomColor = () => {
 
     .right {
       width: 1100px;
-      max-height: 760px;
-      overflow: scroll;
       border-radius: 8px;
       padding: 4px 8px;
 
@@ -298,38 +297,65 @@ const getRandomColor = () => {
 @keyframes home-box-bgc {
   0% {
     background-image: linear-gradient(0deg, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    transition: 2s;
   }
 
   12% {
     background-image: linear-gradient(45deg, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    transition: 2s;
+
   }
 
   25% {
     background-image: linear-gradient(90deg, #f5e3e6 0%, #d6e6fd 99%, #e3eeff 100%);
+    transition: 2s;
+
   }
 
   36% {
     background-image: linear-gradient(135deg, #f5e3e6 0%, #d6e6fd 99%, #e3eeff 100%);
+    transition: 2s;
+
   }
 
   50% {
     background-image: linear-gradient(180deg, #f1eaeb 0%, #e3eeff 99%, #cddcf3 100%);
+    transition: 2s;
+
+    transition: 2s;
+
   }
 
   62% {
     background-image: linear-gradient(225deg, #f1eaeb 0%, #e3eeff 99%, #cddcf3 100%);
+    transition: 2s;
+
+    transition: 2s;
+
   }
 
   75% {
     background-image: linear-gradient(270deg, #f0cfd5 0%, #d0ddf0 99%, #e3eeff 100%);
+    transition: 2s;
+
+    transition: 2s;
+
   }
 
   87% {
     background-image: linear-gradient(325deg, #f0cfd5 0%, #d0ddf0 99%, #e3eeff 100%);
+    transition: 2s;
+
+    transition: 2s;
+
   }
 
   100% {
     background-image: linear-gradient(360deg, #e0dadb 0%, #bfd7fc 99%, #e6edf7 100%);
+    transition: 2s;
+
+    transition: 2s;
+
   }
 }
 
@@ -337,38 +363,56 @@ const getRandomColor = () => {
 @keyframes home-box-bgc-dark {
   0% {
     background-image: linear-gradient(0deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   12% {
     background-image: linear-gradient(45deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   25% {
     background-image: linear-gradient(90deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   36% {
     background-image: linear-gradient(135deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   50% {
     background-image: linear-gradient(180deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   62% {
     background-image: linear-gradient(225deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   75% {
     background-image: linear-gradient(270deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   87% {
     background-image: linear-gradient(325deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 
   100% {
     background-image: linear-gradient(360deg, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    transition: 2s;
+
   }
 }
 </style>

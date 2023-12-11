@@ -1,9 +1,9 @@
 <!--
  * @Author: hfWang
  * @Date: 2023-02-04 20:25:52
- * @LastEditTime: 2023-02-07 23:09:08
+ * @LastEditTime: 2023-12-11 21:45:19
  * @Description: file content
- * @FilePath: \whf_blog\docs\.vitepress\theme\MyComps\MyAllDocs.vue
+ * @FilePath: \hf_blog\docs\.vitepress\theme\components\MyAllDocs.vue
 -->
 <script setup lang="ts">
 import { useRouter } from "vitepress";
@@ -50,7 +50,7 @@ export default {
       </div>
       </p>
       <div class="docs-item-box" v-show="showMore[index]" >
-        <div v-for="item in getDocsByType(type)" class="w-1_2">
+        <div v-for="item in getDocsByType(type)" class="w-1_3">
           <div  class="docs-item" @click="gotoTargetDocs(item)">
             <div style="display: inline-block; width: 20px">{{ item.icon }}</div>
             <span class="ml-8 docs-item-text">
@@ -68,8 +68,8 @@ export default {
   align-items: center;
 }
 
-.w-1_2 {
-  width: 48%;
+.w-1_3 {
+  width: 31%;
   display: inline-block;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -142,7 +142,7 @@ export default {
 }
 
 @media (max-width: 1000px) {
-  .w-1_2 {
+  .w-1_3 {
     width: 100%;
   }
 }
