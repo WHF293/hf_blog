@@ -22,7 +22,6 @@ const getRandomColor = () => {
         <MyAllDocs></MyAllDocs>
       </div>
       <div class="left">
-
         <div class="left-item scale">
           <img src="/buliangren.png" class="buliangren" />
           <div class="flex-center mb-16">

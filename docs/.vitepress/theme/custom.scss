@@ -426,10 +426,10 @@
 }
 
 blockquote {
-  background: linear-gradient(32deg, var(--hf-c-1), var(--hf-c-2), var(--hf-c-3));
+  background: var(--hf-c-1) !important;
   padding: 12px 20px;
+  border: 1px solid var(--vp-c-yellow) !important;
   border-radius: 4px;
-  border-left: none !important;
 }
 
 .VPImage {

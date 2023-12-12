@@ -2,8 +2,8 @@
  * @Author: HfWang
  * @Date: 2023-05-31 19:04:18
  * @LastEditors: wanghaofeng
- * @LastEditTime: 2023-12-02 09:34:42
- * @FilePath: \whf-hooks-analysis\hooks\react-hooks.md
+ * @LastEditTime: 2023-12-12 21:46:19
+ * @FilePath: \hf_blog\docs\ahooks\index.md
 -->
 
 # React Hooks 新手入坑指南
@@ -576,45 +576,17 @@ useEffect 第二个参数：
 
 - 不传
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart LR
-  subgraph 不传
-    A(首次 render) --> B(执行 useEffect 里面的 effect 函数)
-    C(更新 render) --deps 不存在--> B
-  end
-```
+![不传参数](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122137125.png)
 
 - 传空数组
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart LR
-  subgraph 传空数组
-    A(首次 render) --> B(执行 useEffect 里面的 effect 函数)
-    C(更新 render) --> D(useEffect 的 deps 为空数组)
-    D --> END(effect 不执行)
-  end
-```
+![传空数组](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122138039.png)
 
 - 数组不为空
   - 数组里为简单数据类型
   - 数组里为复杂数据类型
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart TB
-  subgraph 数组不为空
-    A(首次 render) --> B(执行 useEffect 里面的\n effect 函数)
-    C(更新 render) --deps 不为空--> D{遍历依赖数组\n判断遍历项类型}
-    D --简单数据类型--> E1{是否发生变化}
-    D --复杂数据类型--> E2(1-判断对象属性数量是否改变\n 2-对属性值进行浅比较)
-    E1 --变化--> B
-    E1 --没变化--> END(effect 不执行)
-    E2 --变化--> B
-    E2 --没变化--> END
-  end
-```
+![数组不为空](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122141267.png)
 
 如果 useEffect 的依赖项数组中包含对象，React 会检查对象属性是否发生变化。
 
@@ -711,19 +683,7 @@ const Demo = () => {
 
 :::
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart LR
-  subgraph clear函数
-    A(首次 render) --> B(不执行 effect 返回\n的 clear 函数)
-    C(更新 render) --> D{deps 是否为空}
-    D --为空--> END(组件卸载\n执行 clear)
-    D --不为空--> F{比较 deps 是否变化}
-    D --不存在--> W1(render 之前\n先执行上一次 render 返回的 clear 函数\n执行结束后在执行 effect 函数)
-    F --变了--> W1
-    F --没变--> W2(不执行)
-  end
-```
+![clear 函数](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122142441.png)
 
 ### uselayoutEffect
 
@@ -764,46 +724,12 @@ const ffn2 = () => a++;
 - 切片 1： num a obj fn1 fn2
 - 切片 2： num a obj fn1 fn2 （全都是新的内存地址，只是变量和函数的名称一致）
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart LR
-  subgraph 切片1
-    A(内存地址1) --> a-num(num)
-    A --> a-a(a)
-    A --> a-obj(obj)
-    A --> a-fn1(fn1)
-    A --> a-fn2(fn2)
-  end
-  subgraph 切片2
-    B(内存地址2) --> b-num(num)
-    B --> b-a(a)
-    B --> b-obj(obj)
-    B --> b-fn1(fn1)
-    B --> b-fn2(fn2)
-  end
-```
+![切片地址](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122143773.png)
 
 但是`对于 fn2 和 obj 来说，其实它们都不依赖 num`，所以我们希望在更新的时候，如果函数或变量本身并不依赖到变化的变量，任然能使用上一切片时间的变量和函数，
 即 obj 和 fn2 在更新的时候任然使用 切片 1 的 obj、fn2 对应的内存地址，这样在更新的时候就可以减少一部分的性能开销，如图所示
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#93c5fd'}}}%%
-flowchart LR
-  subgraph section
-    A(切片1) --> a-a(a)
-    A --> a-fn1(fn1)
-    A --> a-num(num)
-    A --> a-fn2(fn2 地址复用)
-    A --> a-obj(obj 地址复用)
-  end
-  subgraph section
-    B(切片2) --> a-obj
-    B --> a-fn2
-    B --> b-num(num)
-    B --> b-a(a)
-    B --> b-fn1(fn1)
-  end
-```
+![切片地址2](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122144064.png)
 
 > 这里如果熟悉 vue 的话可以来理解为 vue 里面的 computed
 
@@ -1255,6 +1181,7 @@ export function useRequest_2(http, options) {
 
 plugins.forEach(plugin => plugin?.[action]?.(...))
 ```
+:::
 
 ## 总结
 
