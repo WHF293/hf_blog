@@ -1,7 +1,7 @@
 <!--
  * @Author: hfWang
  * @Date: 2023-02-04 20:25:52
- * @LastEditTime: 2023-12-11 21:45:19
+ * @LastEditTime: 2023-12-12 21:55:18
  * @Description: file content
  * @FilePath: \hf_blog\docs\.vitepress\theme\components\MyAllDocs.vue
 -->
@@ -110,7 +110,6 @@ export default {
   .docs-item-box {
     .type-title {
       font-size: 24px;
-      border-left: 3px solid var(--vp-c-green);
       border-bottom: 1px solid #c2a9fd;
       padding: 6px 12px;
       margin-bottom: 12px;
