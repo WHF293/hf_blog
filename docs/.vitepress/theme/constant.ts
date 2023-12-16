@@ -2,7 +2,7 @@
 /*
  * @Author: hfWang
  * @Date: 2022-09-20 23:25:36
- * @LastEditTime: 2023-12-11 22:57:12
+ * @LastEditTime: 2023-12-16 10:26:35
  * @Description: file content
  * @FilePath: \hf_blog\docs\.vitepress\theme\constant.ts
  */
@@ -14,8 +14,7 @@ export const titleMap = {
     interview: '面试题学习',
     source: '源码学习',
     work: '工作学习踩坑',
-    frame: '前端框架',
-    book: '日常记录',
+    other: '日常杂记',
     ahooks: 'ahooks 源码学习',
     vueuse: 'vueuse 源码学习',
 }
