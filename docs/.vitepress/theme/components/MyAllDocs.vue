@@ -1,7 +1,7 @@
 <!--
  * @Author: hfWang
  * @Date: 2023-02-04 20:25:52
- * @LastEditTime: 2023-12-12 21:55:18
+ * @LastEditTime: 2024-01-19 00:39:53
  * @Description: file content
  * @FilePath: \hf_blog\docs\.vitepress\theme\components\MyAllDocs.vue
 -->
@@ -49,9 +49,9 @@ export default {
         <input class="show-more" type="checkbox" v-model="showMore[index]" />
       </div>
       </p>
-      <div class="docs-item-box" v-show="showMore[index]" >
-        <div v-for="item in getDocsByType(type)" class="w-1_3">
-          <div  class="docs-item" @click="gotoTargetDocs(item)">
+      <div class="docs-item-box" v-show="showMore[index]">
+        <div v-for="item in getDocsByType(type)" class="w-1_2">
+          <div class="docs-item" @click="gotoTargetDocs(item)">
             <div style="display: inline-block; width: 20px">{{ item.icon }}</div>
             <span class="ml-8 docs-item-text">
               {{ item.text === 'index' ? '分类目录' : item.text }}
@@ -68,8 +68,8 @@ export default {
   align-items: center;
 }
 
-.w-1_3 {
-  width: 31%;
+.w-1_2 {
+  width: 50%;
   display: inline-block;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -91,9 +91,10 @@ export default {
 }
 
 .docs-group {
-  margin-bottom: 28px;
   padding: 20px;
   border-radius: 12px;
+  width: 45%;
+  margin: 0 20px 20px;
   background-color: var(--hf-bg-1);
   cursor: pointer;
 
@@ -141,7 +142,12 @@ export default {
 }
 
 @media (max-width: 1000px) {
-  .w-1_3 {
+  .docs-group {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .w-1_2 {
     width: 100%;
   }
 }
@@ -163,5 +169,4 @@ export default {
       }
     }
   }
-}
-</style>
+}</style>

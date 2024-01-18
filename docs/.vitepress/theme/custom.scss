@@ -508,3 +508,12 @@ a:hover {
     background-color: var(--code_bgc);
   }
 }
+
+.vp-doc {
+
+  .custom-block  {
+    code {
+      color: var( --vp-c-red-lighter);
+    }
+  }
+}

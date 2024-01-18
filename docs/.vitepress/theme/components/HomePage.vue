@@ -220,6 +220,9 @@ const getRandomColor = () => {
       width: 1100px;
       border-radius: 8px;
       padding: 4px 8px;
+      display: flex;
+      box-sizing: border-box;
+      flex-wrap: wrap;
 
       &::-webkit-scrollbar {
         width: 0px;
