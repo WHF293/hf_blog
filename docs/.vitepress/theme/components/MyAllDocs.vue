@@ -46,14 +46,14 @@ export default {
         <span>{{ titleMap[type] || type }}</span>
       <div class="flex-center">
         {{ getDocsNumByType(type) }}篇
-        <input class="show-more" type="checkbox" v-model="showMore[index]" />
+        <!-- <input class="show-more" type="checkbox" v-model="showMore[index]" /> -->
       </div>
       </p>
       <div class="docs-item-box" v-show="showMore[index]">
         <div v-for="item in getDocsByType(type)" class="w-1_2">
           <div class="docs-item" @click="gotoTargetDocs(item)">
             <div style="display: inline-block; width: 20px">{{ item.icon }}</div>
-            <span class="ml-8 docs-item-text">
+            <span class="ml-8 docs-item-text" :title="item.text">
               {{ item.text === 'index' ? '分类目录' : item.text }}
             </span>
           </div>
@@ -122,6 +122,11 @@ export default {
       font-size: 16px;
       padding: 6px 12px;
       border-radius: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 4px;
 
       &:hover {
         color: var(--vp-c-yellow);

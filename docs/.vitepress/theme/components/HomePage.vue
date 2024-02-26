@@ -23,7 +23,6 @@ const getRandomColor = () => {
       </div>
       <div class="left">
         <div class="left-item scale">
-          <img src="/buliangren.png" class="buliangren" />
           <div class="flex-center mb-16">
             <img src="/whf.jpg" class="avatar card scale" />
           </div>

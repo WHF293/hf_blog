@@ -109,7 +109,7 @@ interface Actions<T> {
 	set: (value: T) => void
 }
 
-function useBoolean(initData: boolean = false): [boolean, Actions] {
+function useBoolean(initData: boolean = false): [boolean, Actions<boolean>] {
 	const [value, setValue] = useState(initData);
 	const actions = {
 		setFalse: () => setValue(false),
@@ -174,7 +174,7 @@ function useToggle<T>(
 	const [value, setValue] = useState<T>(leftValue);
 
 	const actions = {
-		setLeft: () => setValue(initData),
+		setLeft: () => setValue(leftValue),
 		setRight: () => setValue(rightValue),
 		toggle: () => setValue(value === leftValue ? rightValue : leftValue),
 		set: (value: T) => setValue(value)
@@ -293,17 +293,15 @@ class EventListernDemo extends Component {
 
 :::
 
-上面的代码同样是两个组件
-- 组件一：组件挂载或更新的时候，更新定时器，组件卸载的时候清空定时器
-- 组件二：组件挂载时对指定节点开启 touchStart 监听，在 num 大于10时开启 click 监听，组件卸载的时候移除 touchStart 和 click 监听
+- 组件挂载时对指定节点开启 touchStart 监听，在 num 大于10时开启 click 监听，组件卸载的时候移除 touchStart 和 click 监听
 
-这两个组件的逻辑很简单，但是如果我们在写的时候忘记在组件卸载的时候移除监听，那么就`存在内存泄漏的风险`
+组件的实现逻辑很简单，但是如果我们在写的时候忘记在组件卸载的时候移除监听，那么就`存在内存泄漏的风险`
 
 通用的，在类组件时代，如果我们想把添加监听和移除监听的操作抽离出来，也是比较困难的
 
 但是使用 hooks，我们还是能很简单的把上面的风险点给移除
 
-#### useSetTimeout + useEventListener
+#### useEventListener
 
 ::: code-group
 
@@ -325,7 +323,7 @@ function useEventListener(
 
 通过自定义 hooks 我们把定时器和事件监听事件都抽离出来了
 
-下面时把上面的两个类组件更换成函数组件 + 我们自定义的 hooks
+下面把上面的类组件更换成函数组件 + 我们自定义的 hooks
 
 #### function Demo
 
