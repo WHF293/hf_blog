@@ -23,7 +23,6 @@ const getRandomColor = () => {
       </div>
       <div class="left">
         <div class="left-item scale">
-          <img src="/buliangren.png" class="buliangren" />
           <div class="flex-center mb-16">
             <img src="/whf.jpg" class="avatar card scale" />
           </div>
@@ -220,6 +219,9 @@ const getRandomColor = () => {
       width: 1100px;
       border-radius: 8px;
       padding: 4px 8px;
+      display: flex;
+      box-sizing: border-box;
+      flex-wrap: wrap;
 
       &::-webkit-scrollbar {
         width: 0px;

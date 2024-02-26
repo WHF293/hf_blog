@@ -64,7 +64,7 @@ export const getSearchKeyToJson = () => {
         res.push(obj)
       }
     });
-
+    // console.log(dir, res, '........result');
     result[dir] = {
       showMore: true,
       data: res

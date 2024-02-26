@@ -1,9 +1,9 @@
 /*
  * @Author: hfWang
  * @Date: 2022-07-18 19:26:15
- * @LastEditTime: 2023-02-07 22:54:00
+ * @LastEditTime: 2024-01-19 00:03:44
  * @Description: file content
- * @FilePath: \whf_blog\docs\.vitepress\config.ts
+ * @FilePath: \hf_blog\docs\.vitepress\config.ts
  */
 
 import { defineConfig } from "vitepress";
@@ -41,7 +41,7 @@ export default defineConfig({
 			prev: "上一篇",
 			next: "下一篇",
 		},
-		outline: "deep",
+		outline: 'deep',
 	},
 });
 
