@@ -11,12 +11,11 @@ import { Feature } from "../types";
 export const baseUrl = '/hf_blog/'
 
 export const titleMap = {
-    interview: '面试题学习',
     source: '源码学习',
-    work: '工作学习踩坑',
-    other: '日常杂记',
-    ahooks: 'ahooks 源码学习',
-    vueuse: 'vueuse 源码学习',
+    work: '日常踩坑',
+    other: '其他',
+    ahooks: 'ahooks',
+    vueuse: 'vueuse',
 }
 
 export const tagColors = ['#6ee7b7', '#f0abfc', '#94A3B8', '#6ee7b7', '#22d3ee', '#a5b4fc', '#fca5a5']
