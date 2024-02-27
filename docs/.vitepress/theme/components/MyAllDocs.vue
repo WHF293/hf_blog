@@ -93,7 +93,7 @@ export default {
 .docs-group {
   padding: 20px;
   border-radius: 12px;
-  width: 45%;
+  width: 100%;
   margin: 0 20px 20px;
   background-color: var(--hf-bg-1);
   cursor: pointer;
@@ -103,9 +103,14 @@ export default {
   }
 
   &:hover {
-    box-shadow: 0px 0px 20px #ccc;
-    transition: .3s all ease-in-out;
-    transform: scale(1.01);
+    box-shadow:
+      6.3px 4.4px 7.8px rgba(249, 193, 129, 0.043),
+      11.2px 7.8px 14.7px rgba(249, 193, 129, 0.05),
+      15.3px 10.7px 21.4px rgba(249, 193, 129, 0.051),
+      22px 15.4px 29.4px rgba(249, 193, 129, 0.05),
+      42.5px 29.8px 42.3px rgba(249, 193, 129, 0.05),
+      100px 70px 80px rgba(249, 193, 129, 0.06);
+    transition: 0.5s all ease-in-out;
   }
 
   .docs-item-box {
@@ -133,6 +138,13 @@ export default {
         transition: all .6s ease-in-out;
         transform: scale(1.01);
         background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        box-shadow:
+          6.3px 4.4px 7.8px rgba(249, 193, 129, 0.043),
+          11.2px 7.8px 14.7px rgba(249, 193, 129, 0.05),
+          15.3px 10.7px 21.4px rgba(249, 193, 129, 0.051),
+          22px 15.4px 29.4px rgba(249, 193, 129, 0.05),
+          42.5px 29.8px 42.3px rgba(249, 193, 129, 0.05),
+          100px 70px 80px rgba(249, 193, 129, 0.06);
 
         .docs-item-text {
           color: var(--vp-c-yellow);
@@ -174,4 +186,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>
