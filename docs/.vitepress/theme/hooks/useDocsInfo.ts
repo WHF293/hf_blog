@@ -7,8 +7,9 @@
  * @Description:
  * Copyright (c) 2023 by wanghaofeng , All Rights Reserved.
  */
-import { reactive, ref, onMounted } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import allDocsInfo from '../../keyWord.json'
+import { levelMap } from '../constant'
 
 export default function useDocsInfo() {
   const allDocsNum = ref(0)
@@ -22,12 +23,11 @@ export default function useDocsInfo() {
       allDocsNum.value += value.data.length
       _tempKeys.unshift(key)
     })
-    console.log(_tempKeys, '........._tempKeys');
+    console.log(_tempKeys, '........._tempKeys')
     keys.value = _tempKeys.sort((a, b) => {
-      const value1 = a.charAt(0)
-      const value2 = b.charAt(0)
-      // 这里localeCompare应该是不支持第二个参数的 但是并没有报错，请直接使用value1.localeCompare(value2)
-      return value1.localeCompare(value2, 'zh-CN')
+      const akey = levelMap[a]
+      const bkey = levelMap[b]
+      return akey - bkey
     })
   }
 

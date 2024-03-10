@@ -7,10 +7,15 @@
  */
 
 const nav = [
-  // {
-  //   text: 'hooks 葵花宝典',
-  //   link: 'https://whf293.github.io/whf-hooks-analysis/'
-  // },
+  {
+    text: '笔记分组',
+    items: [
+      { text: '👑 ahooks', link: '/ahooks/' },
+      { text: '🥬 vueuse', link: '/vueuse/' },
+      { text: '🏐 work', link: '/work/' },
+      { text: '🎀 other', link: '/other/' },
+    ],
+  },
   {
     text: '面试刷题网站',
     items: [

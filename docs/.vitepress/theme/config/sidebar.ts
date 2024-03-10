@@ -6,26 +6,26 @@
  * @FilePath: \hf-blog-2\docs\.vitepress\customConfig\sidebar.ts
  */
 
-import { getFileName, getOtherSeries, getTargetDir } from "../../utils";
-import { titleMap } from "../constant";
-import type { DefaultTheme } from "vitepress";
+import { getFileName, getOtherSeries, getTargetDir } from '../../utils'
+import { titleMap } from '../constant'
+import type { DefaultTheme } from 'vitepress'
 
 const generatorSideBarGroup = (group: string) => {
-	return [
-		{
-			text: titleMap[group] || group,
-			collapsible: true,
-			collapsed: false,
-			items: getFileName(group),
-		},
-		getOtherSeries(group),
-	]
+  return [
+    {
+      text: titleMap[group] || group,
+      collapsible: true,
+      collapsed: false,
+      items: getFileName(group),
+    },
+    getOtherSeries(group),
+  ]
 }
 
-const sidebar = {} as DefaultTheme.Sidebar 
+const sidebar = {} as DefaultTheme.Sidebar
 
-getTargetDir().forEach(group => {
-	sidebar[`/${group}/`] = generatorSideBarGroup(group)
+getTargetDir().forEach((group) => {
+  sidebar[`/${group}/`] = generatorSideBarGroup(group)
 })
 
-export default sidebar;
+export default sidebar
