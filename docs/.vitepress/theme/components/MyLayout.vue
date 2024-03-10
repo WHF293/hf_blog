@@ -6,57 +6,59 @@
  * @FilePath: \hf_blog\docs\.vitepress\theme\components\MyLayout.vue
 -->
 <script setup lang="ts">
-import DefaultTheme from "vitepress/theme";
-import MyNotFound from "./MyNotFound.vue";
-// import { ref, computed } from 'vue'
+import DefaultTheme from 'vitepress/theme'
+import MyNotFound from './MyNotFound.vue'
+import Watermark from './Watermark/index.vue'
+import { ref, computed } from 'vue'
 // import MySearch from "../MyComps/MySearch.vue";
-import { useData } from "vitepress";
+import { useData } from 'vitepress'
 
 const { page, frontmatter } = useData()
-const { Layout } = DefaultTheme;
-// const _title = computed(() => page.value.title)
-// console.log("title", _title);
+const { Layout } = DefaultTheme
 </script>
 
 <template>
   <div v-if="page.isNotFound">
-    <MyNotFound/>
+    <MyNotFound />
   </div>
   <!-- <div v-else-if="frontmatter.layout === 'home'">
     hdakslhakljh
   </div> -->
-  <Layout v-else>
-    <!-- 导航栏右侧 -->
-    <!-- <template #nav-bar-content-before>
+  <Watermark v-else text="wanghaofeng" :gap="550" :font-size="14" :rotate="-30" fontColor="#f8c373">
+    <Layout>
+      <!-- 导航栏右侧 -->
+      <!-- <template #nav-bar-content-before>
     			<MySearch style="margin-left: 20px" />
     		</template> -->
-    <!-- 首页banner图 -->
-    <!-- <template #home-hero-before>
-      <div class="my-home-hero-before">
-        <img src="/banner.png" alt="图片" style="width: 100%" />
-        <img class="home-fixed-img" src="/cy.png" alt="" />
-      </div>
-    </template> -->
-    <!--文章主体-->
-    <!-- <template #doc-before>
+      <!-- 首页banner图 -->
+      <template #home-hero-before>
+        <div class="my-home-hero-before">
+          <img src="/banner.png" alt="图片" style="width: 100%" />
+          <!-- <img class="home-fixed-img" src="/cy.png" alt="" /> -->
+        </div>
+      </template>
+      <!--文章主体-->
+      <!-- <template #doc-before>
       <div class="title">{{ _title }}</div>
     </template> -->
-    <!--右侧边栏快速前往标题-->
-    <template #aside-top>
-      <div class="mb-20 fs-20 color">霞露小伙 — HfWang</div>
-    </template>
-    <!--右侧边栏底部图片-->
-    <!-- <template #aside-bottom>
-      <div class="aside-bottom-img">
-        <img src="/cy2.png" alt="" />
-      </div>
-    </template> -->
-  </Layout>
+      <!--右侧边栏快速前往标题-->
+      <template #aside-top>
+        <div class="mb-20 fs-20 color">霞露小伙 — HfWang</div>
+      </template>
+      <!--右侧边栏底部图片-->
+      <template #aside-bottom>
+        <div class="aside-bottom-img">
+          <img src="/cy.png" alt="" />
+          <!-- <img src="/cy2.png" alt="" /> -->
+        </div>
+      </template>
+    </Layout>
+  </Watermark>
 </template>
 
 <style scoped>
 .title {
-  font-size:  64px;
+  font-size: 64px;
 }
 .my-home-hero-before {
   position: relative;
@@ -84,7 +86,7 @@ const { Layout } = DefaultTheme;
 
 .aside-bottom-img img {
   border-radius: 8px;
-  position:fixed;
+  position: fixed;
   bottom: 0;
   right: -20px;
   width: 180px;
@@ -96,10 +98,14 @@ const { Layout } = DefaultTheme;
     width: 280px;
     display: block;
   }
+
+  .aside-bottom-img img {
+    width: 240px;
+  }
 }
 
 @media (min-width: 1400px) {
-	.aside-bottom-img img {
+  .aside-bottom-img img {
     width: 360px;
   }
 
@@ -167,8 +173,6 @@ const { Layout } = DefaultTheme;
   margin-bottom: 8px;
   color: var(--vp-c-green-light);
 }
-
-
 </style>
 
 <style>

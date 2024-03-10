@@ -19,15 +19,16 @@
   "devDependencies": {
     "@types/node": "^18.0.6",
     "markdown-it": "^13.0.1",
-    "vitepress-plugin-search": "1.0.4-alpha.19",
-    "vue": "^3.2.37",
     "sass": "^1.62.1",
     "vite": "^4.3.9",
-    "vitepress": "1.0.0-beta.1"
+    "vitepress": "1.0.0-beta.1",
+    "vitepress-plugin-search": "1.0.4-alpha.19",
+    "vue": "^3.2.37"
   },
   "dependencies": {
     "@types/lodash-es": "^4.17.7",
     "lodash-es": "^4.17.21",
-    "sass": "^1.62.0"
+    "sass": "^1.62.0",
+    "typescript": "^5.4.2"
   }
 }
