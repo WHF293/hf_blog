@@ -5,7 +5,7 @@ import { baseUrl, icons, titleMap } from "./theme/constant";
 import { IKeyItem, IOptions } from "./types";
 
 const filterDirOrFile = ["index.md", ".vitepress", "public", "vite.config.ts"]
-const indexMdName = '🎵 目录'
+const indexMdName = '分组目录'
 
 // 获取其他分类
 export const getOtherSeries = (

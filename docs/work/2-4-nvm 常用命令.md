@@ -1,7 +1,7 @@
 # node 环境搭建
 
 :::warning 提示
-待完善
+[nvm 官网](https://nvm.uihtm.com/)
 :::
 
 ## NVM
