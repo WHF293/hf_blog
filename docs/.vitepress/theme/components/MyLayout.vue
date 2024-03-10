@@ -15,7 +15,6 @@ import { useData } from 'vitepress'
 
 const { page, frontmatter } = useData()
 const { Layout } = DefaultTheme
-const text = computed(() => page.value.title === '' ? '' : '霞露小伙')
 </script>
 
 <template>
@@ -25,19 +24,19 @@ const text = computed(() => page.value.title === '' ? '' : '霞露小伙')
   <!-- <div v-else-if="frontmatter.layout === 'home'">
     hdakslhakljh
   </div> -->
-  <Watermark v-else :text="text" :gap="550" :font-size="14" :rotate="-30" fontColor="#f8c373">
+  <Watermark v-else text="wanghaofeng" :gap="550" :font-size="14" :rotate="-30" fontColor="#f8c373">
     <Layout>
       <!-- 导航栏右侧 -->
       <!-- <template #nav-bar-content-before>
     			<MySearch style="margin-left: 20px" />
     		</template> -->
       <!-- 首页banner图 -->
-      <!-- <template #home-hero-before>
-      <div class="my-home-hero-before">
-        <img src="/banner.png" alt="图片" style="width: 100%" />
-        <img class="home-fixed-img" src="/cy.png" alt="" />
-      </div>
-    </template> -->
+      <template #home-hero-before>
+        <div class="my-home-hero-before">
+          <img src="/banner.png" alt="图片" style="width: 100%" />
+          <!-- <img class="home-fixed-img" src="/cy.png" alt="" /> -->
+        </div>
+      </template>
       <!--文章主体-->
       <!-- <template #doc-before>
       <div class="title">{{ _title }}</div>
@@ -47,11 +46,12 @@ const text = computed(() => page.value.title === '' ? '' : '霞露小伙')
         <div class="mb-20 fs-20 color">霞露小伙 — HfWang</div>
       </template>
       <!--右侧边栏底部图片-->
-      <!-- <template #aside-bottom>
-      <div class="aside-bottom-img">
-        <img src="/cy2.png" alt="" />
-      </div>
-    </template> -->
+      <template #aside-bottom>
+        <div class="aside-bottom-img">
+          <img src="/cy.png" alt="" />
+          <!-- <img src="/cy2.png" alt="" /> -->
+        </div>
+      </template>
     </Layout>
   </Watermark>
 </template>
@@ -97,6 +97,10 @@ const text = computed(() => page.value.title === '' ? '' : '霞露小伙')
   .home-fixed-img {
     width: 280px;
     display: block;
+  }
+
+  .aside-bottom-img img {
+    width: 240px;
   }
 }
 
