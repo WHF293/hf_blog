@@ -445,6 +445,10 @@ blockquote {
   color: var(--vp-c-yellow) !important;
 }
 
+.VPDocAside, .VPSidebar {
+  z-index: 2 !important;
+}
+
 .VPSidebar {
   // background: url('/cy2.png') no-repeat bottom;
   background-size: 60%;

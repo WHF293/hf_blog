@@ -24,7 +24,7 @@ const { Layout } = DefaultTheme
   <!-- <div v-else-if="frontmatter.layout === 'home'">
     hdakslhakljh
   </div> -->
-  <Watermark v-else text="wanghaofeng" :gap="550" :font-size="14" :rotate="-30" fontColor="#f8c373">
+  <Watermark v-else text="wanghaofeng" :gap="350" :font-size="14" :rotate="-30" fontColor="#f8c373">
     <Layout>
       <!-- 导航栏右侧 -->
       <!-- <template #nav-bar-content-before>
@@ -90,6 +90,8 @@ const { Layout } = DefaultTheme
   bottom: 0;
   right: -20px;
   width: 180px;
+  pointer-events: none;
+  opacity: 0.3;
   animation: chu-uin linear 3s infinite;
 }
 

@@ -19,6 +19,8 @@
 <style scoped>
 .NotFound {
 	padding: 200px 24px 200px;
+	height: 100%;
+	width: 100%;
 	text-align: center;
 	display: flex;
 	justify-content: center;
