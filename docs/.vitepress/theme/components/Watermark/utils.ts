@@ -86,7 +86,7 @@ export function setWatermark(
 	div.style.backgroundRepeat = 'repeat';
 	div.style.width = '100%';
 	div.style.height = '100%';
-	div.style.zIndex = '99999';
+	div.style.zIndex = '1';
 	div.style.position = 'absolute';
 	div.style.pointerEvents = 'none';
 	div.style.inset = '0';
