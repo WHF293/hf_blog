@@ -102,17 +102,6 @@ export default {
     margin-bottom: 0;
   }
 
-  &:hover {
-    box-shadow:
-      6.3px 4.4px 7.8px rgba(249, 193, 129, 0.043),
-      11.2px 7.8px 14.7px rgba(249, 193, 129, 0.05),
-      15.3px 10.7px 21.4px rgba(249, 193, 129, 0.051),
-      22px 15.4px 29.4px rgba(249, 193, 129, 0.05),
-      42.5px 29.8px 42.3px rgba(249, 193, 129, 0.05),
-      100px 70px 80px rgba(249, 193, 129, 0.06);
-    transition: 0.5s all ease-in-out;
-  }
-
   .docs-item-box {
     .type-title {
       font-size: 24px;
@@ -135,16 +124,7 @@ export default {
 
       &:hover {
         color: var(--vp-c-yellow);
-        transition: all .6s ease-in-out;
-        transform: scale(1.01);
-        background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
-        box-shadow:
-          6.3px 4.4px 7.8px rgba(249, 193, 129, 0.043),
-          11.2px 7.8px 14.7px rgba(249, 193, 129, 0.05),
-          15.3px 10.7px 21.4px rgba(249, 193, 129, 0.051),
-          22px 15.4px 29.4px rgba(249, 193, 129, 0.05),
-          42.5px 29.8px 42.3px rgba(249, 193, 129, 0.05),
-          100px 70px 80px rgba(249, 193, 129, 0.06);
+        border: 1px solid var(--vp-c-yellow);
 
         .docs-item-text {
           color: var(--vp-c-yellow);
@@ -169,22 +149,4 @@ export default {
   }
 }
 
-@media (max-width: 746px) {
-  .docs-group {
-    &:hover {
-      transform: scale(1);
-    }
-  }
-
-  .docs-item-box {
-
-    .docs-item {
-
-      &:hover {
-        transition: .4s;
-        box-shadow: 0px 0px 20px #ccc;
-      }
-    }
-  }
-}
 </style>

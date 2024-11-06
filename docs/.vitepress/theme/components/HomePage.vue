@@ -24,7 +24,7 @@ const getRandomColor = () => {
       <div class="left">
         <div class="left-item scale">
           <div class="flex-center mb-16">
-            <img src="/whf.jpg" class="avatar card scale" />
+            <img src="https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202411062257132.jpg" class="avatar card scale" />
           </div>
           <p class="base-info name">霞露小伙-HfWang</p>
           <p class="base-info my-desc">一个有点中二还在努力搬砖的前端攻城狮</p>
