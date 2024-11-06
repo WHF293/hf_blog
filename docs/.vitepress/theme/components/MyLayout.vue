@@ -33,8 +33,7 @@ const { Layout } = DefaultTheme
       <!-- 首页banner图 -->
       <template #home-hero-before>
         <div class="my-home-hero-before">
-          <img src="/banner.png" alt="图片" style="width: 100%" />
-          <!-- <img class="home-fixed-img" src="/cy.png" alt="" /> -->
+          <img src="https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202411062255110.png" alt="图片" style="width: 100%" />
         </div>
       </template>
       <!--文章主体-->
@@ -48,7 +47,7 @@ const { Layout } = DefaultTheme
       <!--右侧边栏底部图片-->
       <template #aside-bottom>
         <div class="aside-bottom-img">
-          <img src="/cy.png" alt="" />
+          <img src="https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202411062256856.png" alt="" />
           <!-- <img src="/cy2.png" alt="" /> -->
         </div>
       </template>

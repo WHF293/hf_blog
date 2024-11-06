@@ -12,7 +12,7 @@
 			<a class="link" href="/" aria-label="go to home"> 回到首页 </a>
 			<a class="link" @click.stop aria-label="go to home" title="别点我，我真的什么作用都没有啊，你还别不信"> 为了对称 </a>
 		</div>
-		<img src="/cy2.png" class="chu-yin" />
+		<img src="https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202411062258547.png" class="chu-yin" />
 	</div>
 </template>
 

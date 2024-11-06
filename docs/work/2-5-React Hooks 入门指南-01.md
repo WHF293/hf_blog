@@ -362,12 +362,12 @@ function EventListernDemo() {
 	- useState
 	- useReducer
 	- useContext
+	- useRef
 - `副作用相关`
 	- 类生命周期
 		- useEffect
 		- useLayoutEffect
 	- 性能优化
-		- useRef
 		- useMemo
 		- useCallback
 - `父子组件交互`
@@ -437,6 +437,39 @@ const Grandson = () => {
 
 ### useReducer
 
+### useRef
+
+相比于 setState 每次跟新都会生成一个新的对象，useRef 返回的对象内存地址时不变的，使用场景一般用于复杂类的实例创建
+
+> useRef 创建的是一个普通 Javascript 对象，而且会在每次渲染时返回同一个 ref 对象，当我们变化它的 current 属性的时候，对象的引用都是同一个
+
+:::code-group
+
+```js [作为地址不变数据使用]
+import { useRef } from 'react';
+
+const Demo = () => {
+	const count = useRef(0);
+	return (
+		<div>
+			{count}
+			<button onClick={() => count.current++}>count+1</button>
+		</div>
+	);
+};
+```
+
+```jsx [作为绑定dom的元素使用]
+import { useRef } from 'react';
+
+const Demo = () => {
+	const divRef = useRef(null);
+	return <div ref={divRef}></div>;
+};
+```
+
+:::
+
 ## 副作用相关
 
 ### 原理简介
@@ -471,9 +504,9 @@ const ffn2 = () => a++;
 
 ![切片地址2](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122144064.png)
 
-> 这里如果熟悉 vue 的话可以来理解为 vue 里面的 computed
+### 生命周期相关
 
-### useEffect
+#### useEffect
 
 ```js
 /**
@@ -484,7 +517,7 @@ const ffn2 = () => a++;
 useEffect(effect, deps);
 ```
 
-#### effect 执行时机
+##### effect 执行时机
 
 :::code-group
 
@@ -508,6 +541,7 @@ const Demo = () => {
 		</div>
 	);
 };
+ 
 ```
 
 ```jsx [deps 为空数组]{4-6}
@@ -548,6 +582,40 @@ const Demo = () => {
 		</div>
 	);
 };
+```
+
+:::
+
+:::code-group
+
+```jsx [类比 deps 不存在]
+class Demo extends React.Component {
+	componentDidMount() {
+		console.log('无论是自身那个状态发生变化导致的更新或者是祖先组件导致的更新，我这里每次都会触发');
+	}
+	componentDidUpdate() {
+		console.log('无论是自身那个状态发生变化导致的更新或者是祖先组件导致的更新，我这里每次都会触发');
+	}
+}
+```
+
+```jsx [类比 deps 为空]
+class Demo extends React.Component {
+	componentDidMount() {
+		console.log('无论是自身那个状态发生变化导致的更新或者是祖先组件导致的更新，我这里每次都会触发');
+	}
+}
+```
+
+```jsx [类比 deps 有值]
+class Demo extends React.Component {
+	componentDidUpdate(preState, preProps) {
+		if (preState.count !== this.state.count) {
+			console.log('无论是自身那个状态发生变化导致的更新或者是祖先组件导致的更新，我这里每次都会触发');
+		}
+	}
+}
+
 ```
 
 :::
@@ -614,12 +682,32 @@ function shallowEqual(objA: mixed, objB: mixed): boolean {
 ```
 
 
-#### effect 中 clear 函数的执行时机
+##### effect 中 clear 函数的执行时机
 
 - 首次渲染：不会执行 useEffect 里面的 return 函数
 - 组件重新 render，useEffect 执行时，`会先执行 useEffect 里面的 return 函数，后面在执行非 return 部分的代码`
 
 :::code-group
+
+```jsx [deps 不存在]{6-10}
+import { useEffect, useState } from 'react';
+
+const Demo = () => {
+	const [count, setCount] = useState(0);
+
+	useEffect(() => {
+		return () => {
+			console.log('我在组件每次更新前时触发');
+		};
+	});
+	return (
+		<div>
+			<p>count:{count}</p>
+			<button onClick={() => setCount(count++)}>count</button>
+		</div>
+	);
+};
+```
 
 ```jsx [deps 为空]{6-10}
 import { useEffect, useState } from 'react';
@@ -663,9 +751,38 @@ const Demo = () => {
 
 :::
 
+
+:::code-group
+```jsx [类比 deps 不存在]
+class Demo extends React.Component {
+	componentBeforeUpdate() {
+		console.log('我在组件每次更新前时触发');
+	}
+}
+```
+
+```jsx [类比 deps 为空]
+class Demo extends React.Component {
+	componentWillUnmount() {
+		console.log('我在组件卸载时触发');
+	}
+}
+```
+
+```jsx [类比 deps 有值]
+class Demo extends React.Component {
+	componentBeforeUpdate(preState, preProps) {
+		if (preState.count !== this.state.count) {
+			console.log('我在组件每次更新前时触发');
+		}
+	}
+}
+```
+:::
+
 ![clear 函数](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202312122142441.png)
 
-### uselayoutEffect
+#### uselayoutEffect
 
 略，基础语法和 useEffect 一模一样，只有 effect 执行时机不一致，具体可以看下面的执行时机图：
 
@@ -677,7 +794,39 @@ useLayoutEffect 主要用于模拟 uselaytmeffect 行为，其实现原理是将
 
 但是，官方建议尽量使用 useEffect，以避免阻塞视觉更新。
 
----
+具体的使用场景：例如我们要给一个节点绑定监听事件，但是这个节点在 DOM 树中是动态插入的，那么我们就可以使用 useLayoutEffect 来确保监听事件在 DOM 树中插入之后再绑定，以避免出现 bug。
+
+```jsx
+function Demo() {
+	const [count, setCount] = useState(0);
+	const [show, setShow] = useState(false);
+
+	useLayoutEffect(() => {
+		const div = document.getElementById('div');
+		if (div) {
+			div.addEventListener('click', () => {})
+		}
+	
+		return () => {
+			if (div) {
+				div.removeEventListener('click', () => {})
+			}
+	}
+	}, [show]);
+
+	return (
+		<div>
+			<p>count:{count}</p>
+			<button onClick={() => setCount(count++)}>count</button>
+			<button onClick={() => setShow(true)}>show</button>
+			<div id="div"></div>
+		</div>
+	);
+}
+```
+
+### 性能优化相关
+
 
 针对这种场景下的需求，react 为我们提供了这么几个 hooks
 
@@ -712,7 +861,7 @@ const Demo = () => {
 
 这就是 hooks 经常被提及的会导致 `闭包` 问题
 
-### useMemo
+#### useMemo
 
 ```js
 /**
@@ -748,7 +897,7 @@ export default function Demo() {
 }
 ```
 
-### useCallback
+#### useCallback
 
 ```js
 /**
@@ -768,40 +917,11 @@ useCallback(() => fn1(), [xxx]);
 useMemo(() => () => fn1(), [xxx]);
 ```
 
-### useRef
-
-相比于 setState 每次跟新都会生成一个新的对象，useRef 返回的对象内存地址时不变的，使用场景一般用于复杂类的实例创建
-
-> useRef 创建的是一个普通 Javascript 对象，而且会在每次渲染时返回同一个 ref 对象，当我们变化它的 current 属性的时候，对象的引用都是同一个
-
-:::code-group
-
-```js [作为地址不变数据使用]
-import { useRef } from 'react';
-
-const Demo = () => {
-	const count = useRef(0);
-	return (
-		<div>
-			{count}
-			<button onClick={() => count.current++}>count+1</button>
-		</div>
-	);
-};
-```
-
-```jsx [作为绑定dom的元素使用]
-import { useRef } from 'react';
-
-const Demo = () => {
-	const divRef = useRef(null);
-	return <div ref={divRef}></div>;
-};
-```
-
-:::
 
 ## 自定义 hooks
+
+- [ahooks](https://ahooks.js.org/zh-CN/)
+- [react-use](https://www.reactuse.com/)
 
 ### 组件挂载和组件卸载
 
@@ -1131,6 +1251,4 @@ plugins.forEach(plugin => plugin?.[action]?.(...))
 
 ## 总结
 
-大侠，你怎么比我还懒啊。
-
-啊，我懒得写总结，你懒得看内容是吧，要看总结，自己看完内容写去。。。。
+没人看完都写一篇不少于 1000 字的心得体会。。。开个玩笑
