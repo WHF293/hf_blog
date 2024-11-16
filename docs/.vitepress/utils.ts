@@ -1,5 +1,5 @@
 
-import * as fs from "fs";
+import fs from "fs";
 import type { DefaultTheme } from "vitepress";
 import { baseUrl, icons, titleMap } from "./theme/constant";
 import { IKeyItem, IOptions } from "./types";
@@ -83,6 +83,7 @@ export const getTargetDir = () => {
 // 生成查询文件
 export const generateJsonFile = (data: any) => {
   const keysInfo = JSON.stringify({ keywords: data });
+  console.log(keysInfo, 'keysInfo');
   fs.writeFile(
     `${process.cwd()}/docs/.vitepress/keyWord.json`,  // 目标文件
     keysInfo,  // 写入的内容

@@ -83,7 +83,7 @@ HXklineChart 目录结构
 
 ![](https://cdn.nlark.com/yuque/0/2023/jpeg/2586551/1694671108060-42de0daf-4a6c-4892-8e5a-2c165ca3908c.jpeg)
 
-![alt text](yuque_mind.jpeg)
+![](https://whf-img.oss-cn-hangzhou.aliyuncs.com/img/202411161523428.jpeg)
 
 另外还有十字光标的标签等都是覆盖物
 
